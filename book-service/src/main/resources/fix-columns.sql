@@ -1,0 +1,4 @@
+-- Fix existing columns that may not have proper defaults
+ALTER TABLE books MODIFY COLUMN featured BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE books MODIFY COLUMN is_verified BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE books MODIFY COLUMN rating DOUBLE DEFAULT 0.0;
