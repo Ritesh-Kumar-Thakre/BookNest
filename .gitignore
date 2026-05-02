@@ -1,0 +1,90 @@
+/.metadata/
+############################
+# Maven
+############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+build/
+
+############################
+# Spring Boot
+############################
+*.log
+logs/
+*.out
+*.err
+
+############################
+# Application Secrets (DO NOT PUSH)
+############################
+application-local.properties
+application-dev.properties
+application-prod.properties
+.env
+*.env
+
+############################
+# IDE - STS / Eclipse
+############################
+.project
+.classpath
+.settings/
+.springBeans
+.sts4-cache/
+
+############################
+# IntelliJ
+############################
+.idea/
+*.iml
+
+############################
+# VS Code
+############################
+.vscode/
+
+############################
+# OS Files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Java
+############################
+*.class
+
+############################
+# Test Reports / Coverage
+############################
+surefire-reports/
+failsafe-reports/
+coverage/
+.jacoco/
+*.exec
+
+############################
+# Docker
+############################
+*.tar
+docker-compose.override.yml
+
+############################
+# Temporary files
+############################
+*.tmp
+*.swp
+temp/
+tmp/
+
+############################
+# Optional: Ignore local DB files
+############################
+*.mv.db
+*.trace.db
+*.db
