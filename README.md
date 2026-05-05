@@ -1,6 +1,31 @@
 # ⚙️ BookNest Backend — Scalable Microservices System
 
 <p align="center">
+  <a href="https://www.docker.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker" />
+  </a>
+
+  <a href="https://www.rabbitmq.com/" target="_blank">
+    <img src="https://img.shields.io/badge/RabbitMQ-Async-FF6600?style=for-the-badge&logo=rabbitmq" />
+  </a>
+
+  <a href="https://oauth.net/2/" target="_blank">
+    <img src="https://img.shields.io/badge/OAuth2-Secure-000000?style=for-the-badge&logo=google" />
+  </a>
+
+  <a href="https://razorpay.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Razorpay-Payments-0C2451?style=for-the-badge&logo=razorpay" />
+  </a>
+
+  <a href="https://site.mockito.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Mockito-Testing-brightgreen?style=for-the-badge" />
+  </a>
+
+  <a href="https://www.sonarqube.org/" target="_blank">
+    <img src="https://img.shields.io/badge/SonarQube-Code%20Quality-blue?style=for-the-badge" />
+  </a>
+</p>
+<p align="center">
   <a href="https://www.java.com/" target="_blank">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="35"/>
   </a>
