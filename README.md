@@ -1,15 +1,17 @@
 # ⚙️ BookNest Backend — Scalable Microservices System
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker" />
-  <img src="https://img.shields.io/badge/RabbitMQ-Async-FF6600?style=for-the-badge&logo=rabbitmq" />
-  <img src="https://img.shields.io/badge/OAuth2-Secure-000000?style=for-the-badge&logo=google" />
-  <img src="https://img.shields.io/badge/Razorpay-Payments-0C2451?style=for-the-badge&logo=razorpay" />
-  <img src="https://img.shields.io/badge/Mockito-Testing-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/SonarQube-Code%20Quality-blue?style=for-the-badge" />
-</p>
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=java,spring,mysql" height="35"/>
+  <a href="https://www.java.com/" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="35"/>
+  </a>
+
+  <a href="https://spring.io/" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" height="35"/>
+  </a>
+
+  <a href="https://www.mysql.com/" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="35"/>
+  </a>
 </p>
 <p align="center">
   <b>A production-ready backend built using Microservices Architecture for scalable and secure book commerce.</b>
