@@ -25,4 +25,6 @@ public interface WalletService {
 
 	void deleteById(Integer walletId);
 
+	void withdraw(Wallet wallet, Double amount, String remarks);
+
 }

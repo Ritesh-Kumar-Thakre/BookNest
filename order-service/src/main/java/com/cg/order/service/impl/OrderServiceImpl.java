@@ -166,7 +166,7 @@ public class OrderServiceImpl implements OrderService {
 		// 2. Handle Cancellation logic (Refund & Stock Restoration)
 		if ("CANCELLED".equals(newStatus)) {
 			// Refund Wallet if it was a wallet payment
-			if ("WALLET".equalsIgnoreCase(order.getModeOfPayment())) {
+			if ("WALLET".equalsIgnoreCase(order.getModeOfPayment()) || "RAZORPAY".equalsIgnoreCase(order.getModeOfPayment())) {
 				try {
 					log.info("Refunding wallet: userId={}, amount={}, orderId={}", order.getUserId(), amount, order.getOrderId());
 					walletClient.refundMoney(order.getUserId(), amount, order.getOrderId());
@@ -219,7 +219,7 @@ public class OrderServiceImpl implements OrderService {
 		// 3. Send notification
 		try {
 			String notifType = mapStatusToNotificationType(newStatus);
-			Boolean isRefunded = "CANCELLED".equals(newStatus) ? "WALLET".equalsIgnoreCase(order.getModeOfPayment()) : null;
+			Boolean isRefunded = "CANCELLED".equals(newStatus) ? ("WALLET".equalsIgnoreCase(order.getModeOfPayment()) || "RAZORPAY".equalsIgnoreCase(order.getModeOfPayment())) : null;
 			notificationPublisher.sendNotification(order.getUserId(), notifType, order.getOrderId(), amount, isRefunded);
 		} catch (Exception e) {
 			log.warn("Notification failed for order {}: {}", order.getOrderId(), e.getMessage());

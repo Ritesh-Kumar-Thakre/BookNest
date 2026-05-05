@@ -159,6 +159,23 @@ public class WalletController {
 
 	}
 
+	@PutMapping("/withdraw/{walletId}")
+	public ResponseEntity<?> withdrawMoney(
+			@PathVariable Integer walletId,
+			@RequestParam Double amount,
+			@RequestParam String remarks) {
+		try {
+			if (amount == null || amount < 1) {
+				return ResponseEntity.badRequest().body(java.util.Map.of("message", "Amount must be at least ₹1"));
+			}
+			Wallet wallet = walletService.getById(walletId);
+			walletService.withdraw(wallet, amount, remarks);
+			return ResponseEntity.ok().body(java.util.Map.of("message", "Withdrawal successful"));
+		} catch (RuntimeException e) {
+			return ResponseEntity.badRequest().body(java.util.Map.of("message", e.getMessage()));
+		}
+	}
+
 	@GetMapping("/balance")
 	public ResponseEntity<?> getBalance(@RequestHeader(value = "X-User-Id", required = false) Integer userId) {
 		if (userId == null) {
