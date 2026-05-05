@@ -1,12 +1,12 @@
 # ⚙️ BookNest Backend — Scalable Microservices System
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot" />
-  <img src="https://img.shields.io/badge/Spring%20Cloud-2023-blue?style=for-the-badge&logo=spring" />
-  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java" />
-  <img src="https://img.shields.io/badge/MySQL-8-blue?style=for-the-badge&logo=mysql" />
-  <img src="https://img.shields.io/badge/JWT-Secure-red?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Architecture-Microservices-gold?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker" />
+  <img src="https://img.shields.io/badge/RabbitMQ-Async-FF6600?style=for-the-badge&logo=rabbitmq" />
+  <img src="https://img.shields.io/badge/OAuth2-Secure-000000?style=for-the-badge&logo=google" />
+  <img src="https://img.shields.io/badge/Razorpay-Payments-0C2451?style=for-the-badge&logo=razorpay" />
+  <img src="https://img.shields.io/badge/Mockito-Testing-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SonarQube-Code%20Quality-blue?style=for-the-badge" />
 </p>
 
 <p align="center">
@@ -77,15 +77,37 @@ graph TD
 
 ## 🚀 Technologies & Tools
 
+### 🧩 Core Backend
 - **Framework:** Spring Boot 3.x
-- **Microservices:** Spring Cloud (Netflix Eureka, Gateway)
-- **Security:** Spring Security & Stateless JWT Authentication
-- **Database:** MySQL 8.x (Per-service database pattern)
+- **Microservices:** Spring Cloud (Netflix Eureka, API Gateway)
+- **Security:** Spring Security, JWT Authentication, OAuth 2.0
+- **Database:** MySQL 8.x (Database-per-service pattern)
 - **ORM:** Spring Data JPA (Hibernate)
 - **Build Tool:** Maven
-- **Documentation:** Swagger / OpenAPI (Optional)
 
 ---
+
+### 🧱 Infrastructure & DevOps
+- 🐳 Docker — Containerized microservices deployment for consistent environments  
+- 📨 RabbitMQ — Asynchronous messaging for inter-service communication  
+
+---
+
+### 🔐 Authentication & Payments
+- 🔑 OAuth 2.0 (Google Login) — Secure social authentication  
+- 💳 Razorpay — Payment gateway integration for transactions  
+
+---
+
+### 🧪 Testing & Code Quality
+- 🧪 Mockito — Unit testing and service mocking  
+- 📊 SonarQube / SonarLint — Static code analysis and quality assurance  
+
+---
+
+### 📄 API & Documentation
+- 📘 Swagger / OpenAPI — API documentation and testing
+- 📬 Postman — API testing, request validation, and workflow automation
 
 ## 🚦 Getting Started
 
@@ -143,5 +165,7 @@ BookNest uses a stateless JWT-based security model:
 ---
 
 <p align="center">
-  Made with ❤️ by the BookNest Team
+  Made with ❤️ by <b>Ritesh Thakre</b> <br/>
+  🔗 GitHub: <a href="https://github.com/Ritesh-Kumar-Thakre">Ritesh Thakre GitHub</a> |
+  💼 LinkedIn: <a href="www.linkedin.com/in/ritesh-thakre">Ritesh Thakre linkedin</a>
 </p>
