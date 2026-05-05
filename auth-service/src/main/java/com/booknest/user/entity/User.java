@@ -42,6 +42,19 @@ public class User {
 	@Column(name = "profile_image_url")
 	private String profileImageUrl;
 
+	// Saved address for checkout
+	@Column(name = "address_street")
+	private String addressStreet;
+
+	@Column(name = "address_city")
+	private String addressCity;
+
+	@Column(name = "address_state")
+	private String addressState;
+
+	@Column(name = "address_pincode")
+	private String addressPincode;
+
 	@Column(name = "Created_Time", updatable = false)
 	private LocalDateTime createdAt;
 

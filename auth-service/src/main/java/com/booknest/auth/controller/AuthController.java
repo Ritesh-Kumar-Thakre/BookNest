@@ -66,6 +66,23 @@ public class AuthController {
 		}
 	}
 
+	@Autowired
+	private com.booknest.auth.service.GoogleOAuthService googleOAuthService;
+
+	@PostMapping("/google")
+	public ResponseEntity<AuthResponse> loginWithGoogle(@RequestBody Map<String, String> request) {
+		try {
+			String idToken = request.get("idToken");
+			if (idToken == null || idToken.isEmpty()) {
+				return new ResponseEntity<>(new AuthResponse(null, "Token is missing"), HttpStatus.BAD_REQUEST);
+			}
+			AuthResponse response = googleOAuthService.loginWithGoogle(idToken);
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		} catch (RuntimeException e) {
+			return new ResponseEntity<>(new AuthResponse(null, e.getMessage()), HttpStatus.BAD_REQUEST);
+		}
+	}
+
 	@PostMapping("/logout")
 	public ResponseEntity<?> logout(@RequestHeader(value = "Authorization", required = false) String authHeader) {
 		if (authHeader != null && authHeader.startsWith("Bearer ")) {

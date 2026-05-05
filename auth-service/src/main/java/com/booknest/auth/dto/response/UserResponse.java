@@ -16,6 +16,10 @@ public class UserResponse {
     private Role role;
     private Long mobile;
     private String profileImageUrl;
+    private String addressStreet;
+    private String addressCity;
+    private String addressState;
+    private String addressPincode;
 
     public UserResponse(User user){
 
@@ -25,5 +29,9 @@ public class UserResponse {
         this.role = user.getRole();
         this.mobile = user.getMobile();
         this.profileImageUrl = user.getProfileImageUrl();
+        this.addressStreet = user.getAddressStreet();
+        this.addressCity = user.getAddressCity();
+        this.addressState = user.getAddressState();
+        this.addressPincode = user.getAddressPincode();
     }
 }

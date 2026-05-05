@@ -40,27 +40,18 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
 
 		boolean isOpen = isOpenEndpoint(path, method);
 
-		// Debug headers
-		exchange.getResponse().getHeaders().add("X-Debug-Path", path);
-		exchange.getResponse().getHeaders().add("X-Debug-IsOpen", String.valueOf(isOpen));
-
 		// Check for Authorization header
 		String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 		String token = (authHeader != null && authHeader.startsWith("Bearer ")) ? authHeader.substring(7) : null;
-		
-		exchange.getResponse().getHeaders().add("X-Debug-HasToken", String.valueOf(token != null));
 
 		if (token != null) {
 			boolean isValid = jwtUtil.validateToken(token);
-			exchange.getResponse().getHeaders().add("X-Debug-TokenValid", String.valueOf(isValid));
 			
 			if (isValid) {
 				// Valid token: extract user info and inject headers
 				Integer userId = jwtUtil.extractUserId(token);
 				String role = jwtUtil.extractRole(token);
 				String email = jwtUtil.extractSubject(token);
-				
-				exchange.getResponse().getHeaders().add("X-Debug-UserId", String.valueOf(userId));
 
 				ServerHttpRequest.Builder builder = request.mutate();
 				if (userId != null) {
@@ -113,6 +104,7 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
 		// Auth endpoints that should be accessible without a VALID token (invalid token will be stripped)
 		if (p.contains("/auth/register") || 
 			p.contains("/auth/login") || 
+			p.contains("/auth/google") ||
 			p.contains("/auth/logout") ||
 			p.contains("/auth/me") ||
 			p.contains("/auth/refresh") ||

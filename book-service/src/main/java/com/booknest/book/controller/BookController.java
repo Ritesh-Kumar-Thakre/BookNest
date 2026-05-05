@@ -1,8 +1,11 @@
 package com.booknest.book.controller;
 
+
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -22,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.booknest.book.entity.Book;
 import com.booknest.book.entity.BookImage;
@@ -31,6 +33,7 @@ import com.booknest.book.service.BookService;
 import com.booknest.book.service.FileStorageService;
 
 @RestController
+@Slf4j
 @RequestMapping("/books")
 public class BookController {
 

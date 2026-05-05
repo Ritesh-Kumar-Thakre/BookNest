@@ -155,6 +155,18 @@ public class AuthServiceImpl implements AuthService {
 		if (user.getProfileImageUrl() != null) {
 			updateUser.setProfileImageUrl(user.getProfileImageUrl());
 		}
+		if (user.getAddressStreet() != null) {
+			updateUser.setAddressStreet(user.getAddressStreet());
+		}
+		if (user.getAddressCity() != null) {
+			updateUser.setAddressCity(user.getAddressCity());
+		}
+		if (user.getAddressState() != null) {
+			updateUser.setAddressState(user.getAddressState());
+		}
+		if (user.getAddressPincode() != null) {
+			updateUser.setAddressPincode(user.getAddressPincode());
+		}
 
 		return userRepository.save(updateUser);
 	}
