@@ -12,10 +12,6 @@
   <img src="https://skillicons.dev/icons?i=java,spring,mysql" height="35"/>
 </p>
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=java,spring,mysql" />
-</p>
-
-<p align="center">
   <b>A production-ready backend built using Microservices Architecture for scalable and secure book commerce.</b>
 </p>
 
