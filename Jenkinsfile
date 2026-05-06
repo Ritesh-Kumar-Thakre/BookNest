@@ -5,6 +5,11 @@ pipeline {
         DOCKER_HUB_REPO = 'booknest'  // Change to your Docker Hub username/repo
     }
 
+    tools {
+        maven 'Maven-3'
+        jdk 'JDK-17'
+    }
+
     stages {
 
         // ── Stage 1: Checkout ───────────────────────────────
@@ -20,80 +25,70 @@ pipeline {
                 stage('Eureka Server') {
                     steps {
                         dir('eureka-server') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('API Gateway') {
                     steps {
                         dir('api-gateway') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Auth Service') {
                     steps {
                         dir('auth-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Book Service') {
                     steps {
                         dir('book-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Cart Service') {
                     steps {
                         dir('cart-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Order Service') {
                     steps {
                         dir('order-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Wallet Service') {
                     steps {
                         dir('wallet-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Review Service') {
                     steps {
                         dir('review-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Wishlist Service') {
                     steps {
                         dir('wishlist-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
                 stage('Notification Service') {
                     steps {
                         dir('notification-service') {
-                            sh 'chmod +x mvnw'
-                            sh './mvnw clean package -DskipTests'
+                            sh 'mvn clean package -DskipTests'
                         }
                     }
                 }
@@ -106,7 +101,7 @@ pipeline {
                 stage('Test Auth Service') {
                     steps {
                         dir('auth-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -118,7 +113,7 @@ pipeline {
                 stage('Test Book Service') {
                     steps {
                         dir('book-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -130,7 +125,7 @@ pipeline {
                 stage('Test Cart Service') {
                     steps {
                         dir('cart-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -142,7 +137,7 @@ pipeline {
                 stage('Test Order Service') {
                     steps {
                         dir('order-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -154,7 +149,7 @@ pipeline {
                 stage('Test Wallet Service') {
                     steps {
                         dir('wallet-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -166,7 +161,7 @@ pipeline {
                 stage('Test Review Service') {
                     steps {
                         dir('review-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -178,7 +173,7 @@ pipeline {
                 stage('Test Wishlist Service') {
                     steps {
                         dir('wishlist-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
@@ -190,7 +185,7 @@ pipeline {
                 stage('Test Notification Service') {
                     steps {
                         dir('notification-service') {
-                            sh './mvnw test'
+                            sh 'mvn test'
                         }
                     }
                     post {
