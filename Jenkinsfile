@@ -234,13 +234,17 @@ pipeline {
             echo '✅ BookNest Backend Pipeline completed successfully!'
         }
         failure {
-            echo '❌ BookNest Backend Pipeline failed!'
-            // Cleanup on failure
-            sh 'docker compose down || true'
+            node {
+                echo '❌ BookNest Backend Pipeline failed!'
+                // Cleanup on failure
+                sh 'docker compose down || true'
+            }
         }
         always {
-            // Clean up workspace (optional)
-            cleanWs(cleanWhenNotBuilt: false)
+            node {
+                // Clean up workspace (optional)
+                cleanWs(cleanWhenNotBuilt: false)
+            }
         }
     }
 }
