@@ -201,15 +201,15 @@ pipeline {
         // ── Stage 4: Docker Build & Push ────────────────────
         stage('Docker Build & Compose') {
             steps {
-                sh 'docker compose build'
+                sh 'docker compose -p booknest-backend build'
             }
         }
 
         // ── Stage 5: Deploy (Docker Compose Up) ─────────────
         stage('Deploy') {
             steps {
-                sh 'docker compose down || true'
-                sh 'docker compose up -d'
+                sh 'docker compose -p booknest-backend down || true'
+                sh 'docker compose -p booknest-backend up -d'
             }
         }
 
@@ -239,7 +239,7 @@ pipeline {
             // Cleanup on failure
             script {
                 try {
-                    sh 'docker compose down || true'
+                    sh 'docker compose -p booknest-backend down || true'
                 } catch (Exception e) {
                     echo "Cleanup failed: ${e.message}"
                 }
