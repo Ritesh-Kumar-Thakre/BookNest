@@ -21,7 +21,7 @@ pipeline {
 
         // ── Stage 2: Build All Microservices ────────────────
         stage('Build Microservices') {
-            parallel {
+            stages {
                 stage('Eureka Server') {
                     steps {
                         dir('eureka-server') {
@@ -97,7 +97,7 @@ pipeline {
 
         // ── Stage 3: Run Unit Tests ─────────────────────────
         stage('Run Tests') {
-            parallel {
+            stages {
                 stage('Test Auth Service') {
                     steps {
                         dir('auth-service') {
@@ -234,16 +234,24 @@ pipeline {
             echo '✅ BookNest Backend Pipeline completed successfully!'
         }
         failure {
-            node {
-                echo '❌ BookNest Backend Pipeline failed!'
-                // Cleanup on failure
-                sh 'docker compose down || true'
+            echo '❌ BookNest Backend Pipeline failed!'
+            // Cleanup on failure
+            script {
+                try {
+                    sh 'docker compose down || true'
+                } catch (Exception e) {
+                    echo "Cleanup failed: ${e.message}"
+                }
             }
         }
         always {
-            node {
-                // Clean up workspace (optional)
-                cleanWs(cleanWhenNotBuilt: false)
+            // Clean up workspace (optional)
+            script {
+                try {
+                    cleanWs(cleanWhenNotBuilt: false)
+                } catch (Exception e) {
+                    echo "Clean workspace failed: ${e.message}"
+                }
             }
         }
     }
