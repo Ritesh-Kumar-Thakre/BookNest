@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_HUB_REPO = 'booknest'  // Change to your Docker Hub username/repo
+        MAVEN_OPTS = '-Xmx512m -Xms256m'
     }
 
     tools {
