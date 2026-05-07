@@ -171,11 +171,10 @@ services:
         condition: service_healthy
 
   # ─── Frontend ──────────────────────────────────────
-  frontend:
-    build: ../Frontend/BookNest
-    container_name: booknest-frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - api-gateway
-
+  # frontend:
+  #   build: ../Frontend/BookNest
+  #   container_name: booknest-frontend
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - api-gateway
