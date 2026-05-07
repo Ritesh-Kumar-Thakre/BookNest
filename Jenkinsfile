@@ -208,6 +208,12 @@ pipeline {
         // ── Stage 5: Deploy (Docker Compose Up) ─────────────
         stage('Deploy') {
             steps {
+                script {
+                    def containers = ['rabbitmq', 'eureka-server', 'api-gateway', 'auth-service', 'book-service', 'cart-service', 'order-service', 'wallet-service', 'review-service', 'wishlist-service', 'notification-service']
+                    for (String c : containers) {
+                        sh "docker rm -f ${c} || true"
+                    }
+                }
                 sh 'docker compose -p booknest-backend down || true'
                 sh 'docker compose -p booknest-backend up -d'
             }
