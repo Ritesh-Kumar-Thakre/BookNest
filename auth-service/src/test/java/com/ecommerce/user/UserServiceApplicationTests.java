@@ -1,4 +1,4 @@
-package com.ecommerce.user;
+package com.booknest;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
