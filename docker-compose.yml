@@ -16,6 +16,8 @@ services:
     build: ./eureka-server
     ports:
       - "8761:8761"
+    environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:8761/actuator/health || exit 1"]
       interval: 15s
@@ -28,6 +30,7 @@ services:
     ports:
       - "8080:8080"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -39,6 +42,7 @@ services:
     ports:
       - "8081:8081"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_auth?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -53,6 +57,7 @@ services:
     ports:
       - "8082:8082"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_book?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -67,6 +72,7 @@ services:
     ports:
       - "8083:8083"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_cart?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -81,6 +87,7 @@ services:
     ports:
       - "8084:8084"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_order?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -98,6 +105,7 @@ services:
     ports:
       - "8085:8085"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_wallet?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -112,6 +120,7 @@ services:
     ports:
       - "8086:8086"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_review?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -126,6 +135,7 @@ services:
     ports:
       - "8087:8087"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_wishlist?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -140,6 +150,7 @@ services:
     ports:
       - "8088:8088"
     environment:
+      - JAVA_TOOL_OPTIONS="-Xms64m -Xmx256m"
       - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_notification?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
