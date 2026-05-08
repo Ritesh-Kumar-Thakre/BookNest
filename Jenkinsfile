@@ -251,8 +251,8 @@ pipeline {
                 }
             }
         }
-        always {
-            // Clean up workspace (optional)
+        cleanup {
+            // Clean up workspace
             script {
                 try {
                     cleanWs(cleanWhenNotBuilt: false)
