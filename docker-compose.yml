@@ -43,9 +43,11 @@ services:
       - "8081:8081"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_auth?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_auth?createDatabaseIfNotExist=true
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -58,9 +60,9 @@ services:
       - "8082:8082"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_book?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_book?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -73,9 +75,9 @@ services:
       - "8083:8083"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_cart?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_cart?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -88,9 +90,9 @@ services:
       - "8084:8084"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_order?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_order?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
       - SPRING_RABBITMQ_HOST=rabbitmq
     depends_on:
@@ -106,9 +108,9 @@ services:
       - "8085:8085"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_wallet?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_wallet?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -121,9 +123,9 @@ services:
       - "8086:8086"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_review?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_review?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -136,9 +138,9 @@ services:
       - "8087:8087"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_wishlist?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_wishlist?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
     depends_on:
       eureka-server:
@@ -151,16 +153,16 @@ services:
       - "8088:8088"
     environment:
       - JAVA_TOOL_OPTIONS=-Xms64m -Xmx256m
-      - SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/booknest_notification?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://${DB_HOST:-host.docker.internal}:3306/booknest_notification?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=${DB_USER:-root}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD:-root}
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
       - SPRING_RABBITMQ_HOST=rabbitmq
       - NOTIFICATION_EMAIL_ENABLED=true
       - SPRING_MAIL_HOST=smtp.gmail.com
       - SPRING_MAIL_PORT=465
       - SPRING_MAIL_USERNAME=riteshthakre976@gmail.com
-      - SPRING_MAIL_PASSWORD=ykjoxpoaanakhobt
+      - SPRING_MAIL_PASSWORD=${MAIL_PASSWORD:-ykjoxpoaanakhobt}
       - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
       - SPRING_MAIL_PROPERTIES_MAIL_SMTP_SSL_ENABLE=true
       - SPRING_MAIL_PROPERTIES_MAIL_SMTP_SSL_TRUST=smtp.gmail.com
